@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "My Movies";
+}
+
+@model MovieCollection.Models.ApplicationResponse;
+
+<h1>@ViewData["Title"]</h1>
+<p>Fill out your movie list!</p>
+@*Create a form to input movies*@
+<div>
+    <form method="post">
+        <label asp-for="CategoryId">Category: </label>
+        <select asp-for="CategoryId">
+            <option value="">Select a category</option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select><br />
+        <label asp-for="Title">Title: </label>
+        <input asp-for="Title" /><br />
+        <label asp-for="Year">Year: </label>
+        <input asp-for="Year"  /><br />
+        <label asp-for="Director">Director: </label>
+        <input asp-for="Director"  /><br />
+        <label asp-for="Rating">Rating: </label>
+        <select asp-for="Rating" >
+            <option value="">-Select-</option>
+            <option value="G">G</option>
+            <option value="NR">NR</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+            <option value="TV-14">TV-14</option>
+            <option value="TV-PG">TV-PG</option>
+            <option value="TV-Y7">TV-Y7</option>
+            <option value="UR">UR</option>
+        </select><br />
+        <label asp-for="Edited">Edited: </label>
+        <select asp-for="Edited">
+            <option value="">-Select-</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select><br />
+        <label asp-for="LentTo">Lent to: </label>
+        <input asp-for="LentTo" /><br />
+        <label asp-for="Notes">Notes: </label>
+        <input asp-for="Notes" /><br />
+        <button type="submit">Submit</button>
+        <br />
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>

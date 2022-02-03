@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "The Joel Hilton Film Collection";
+}
+
+@*includes a header and image*@
+<div class="text-center">
+    <h1 class="display-4">Welcome The Joel Hilton Film Collection</h1>
+    <img src="~/img/JoelHiltonHeadshot.jpg" alt="Joel Hilton's Headshot" />
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Movies">Fill out movies</a>
+</div>
+<div>
+    <a asp-controller="Home" asp-action="MovieList">View movies</a>
+</div>
