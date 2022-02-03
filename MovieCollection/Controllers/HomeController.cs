@@ -69,7 +69,7 @@ namespace MovieCollection.Controllers
         [HttpGet]
         public IActionResult Edit(int applicationid)
         {
-            ViewBag.Categories = movieContext.categories.ToList();
+            ViewBag.Categories = movieContext.categories.ToList(); //get the record info
             var application = movieContext.responses.Single(x => x.ApplicationId == applicationid);
             return View("Movies", application);
         }
@@ -85,6 +85,7 @@ namespace MovieCollection.Controllers
         [HttpGet]
         public IActionResult Delete(int applicationid)
         {
+            //get the record id
             var application = movieContext.responses.Single(x => x.ApplicationId == applicationid);
             return View(application);
         }
